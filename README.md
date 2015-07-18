@@ -4,4 +4,5 @@
 
 This actually contains some examples like: 
 
-- Multithreading 
+- Multithreading
+- Resource Bundle - (Reading from properties files) 
