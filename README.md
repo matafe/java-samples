@@ -4,5 +4,7 @@
 
 This actually contains some examples like: 
 
+- Design Patterns
+ * Strategy
 - Multithreading
 - Resource Bundle - (Reading from properties files) 
