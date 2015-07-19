@@ -6,5 +6,6 @@ This actually contains some examples like:
 
 - Design Patterns
  * Strategy
+ * Command
 - Multithreading
 - Resource Bundle - (Reading from properties files) 
