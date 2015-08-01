@@ -7,5 +7,8 @@ This actually contains some examples like:
 - Design Patterns
  * Strategy
  * Command
+ * Factory Method
+ * Proxy
 - Multithreading
-- Resource Bundle - (Reading from properties files) 
+- Resource Bundle - (Reading from properties files)
+- ThreadLocal 

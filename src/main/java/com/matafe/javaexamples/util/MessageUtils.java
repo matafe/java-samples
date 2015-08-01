@@ -1,12 +1,9 @@
 package com.matafe.javaexamples.util;
 
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.MissingResourceException;
-import java.util.Properties;
 import java.util.ResourceBundle;
 
 /**
@@ -79,28 +76,6 @@ public class MessageUtils {
 		}
 	}
 
-	/**
-	 * Returns the properties from the properties message file
-	 * 
-	 * @param bundleName
-	 *            bundle
-	 * @param locale
-	 *            locale
-	 * @return The property with all messages
-	 */
-	public Properties getProperties(final String bundleName, final Locale locale) {
-		Properties properties = new Properties();
-		ResourceBundle bundle = this.getBundle(bundleName, locale);
-
-		Enumeration<String> keys = bundle.getKeys();
-		while (keys.hasMoreElements()) {
-			String key = keys.nextElement();
-			properties.put(key, bundle.getString(key));
-		}
-
-		return properties;
-	}
-
 	@Override
 	public String toString() {
 		return this.cacheMessages.toString();
@@ -116,12 +91,5 @@ public class MessageUtils {
 				+ bundle.getString("application.name"));
 
 		System.out.println();
-		// Example 2
-		Properties properties = messageUtils
-				.getProperties("message", Locale.US);
-
-		for (Entry<Object, Object> entry : properties.entrySet()) {
-			System.out.println(entry.getKey() + " = " + entry.getValue());
-		}
 	}
 }
