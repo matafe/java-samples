@@ -9,6 +9,8 @@ This actually contains some examples like:
  * Command
  * Factory Method
  * Proxy
+ * Builder
+ * Singleton
 - Multithreading
 - Resource Bundle - (Reading from properties files)
 - ThreadLocal 
