@@ -25,16 +25,23 @@ public class ConfigurationManager {
   private Properties properties = new Properties();
 
   /**
-   * The one and only instance of this class.
-   */
-  private static ConfigurationManager instance;
-
-  /**
    * The private default constructor.
    */
   private ConfigurationManager() {
     initialize();
   }
+
+  /**
+   * Helper class for Singleton
+   */
+  private static class ConfigurationManagerHelper {
+
+    /**
+     * The one and only instance of the main class.
+     */
+    private static final ConfigurationManager INSTANCE = new ConfigurationManager();
+  }
+
 
   private void initialize() {
     loadProperties();
@@ -85,16 +92,9 @@ public class ConfigurationManager {
    * 
    * @return the singleton.
    */
-  // double checked locking implementation
+  // Bill Pugh
   public static ConfigurationManager getInstance() {
-    if (instance == null) {
-      synchronized (ConfigurationManager.class) {
-        if (instance == null) {
-          instance = new ConfigurationManager();
-        }
-      }
-    }
-    return instance;
+    return ConfigurationManagerHelper.INSTANCE;
   }
 
   /**
@@ -128,11 +128,4 @@ public class ConfigurationManager {
     return map;
   }
 
-  public static void main(String[] args) {
-    System.out.println(
-        "database.url => " + ConfigurationManager.getInstance().getProperty("database.url"));
-
-    Map<String, Object> properties = ConfigurationManager.getInstance().getProperties();
-    System.out.println(properties);
-  }
 }
