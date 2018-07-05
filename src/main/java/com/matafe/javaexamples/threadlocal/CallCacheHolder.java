@@ -7,14 +7,14 @@ package com.matafe.javaexamples.threadlocal;
  */
 public class CallCacheHolder {
 
-	private static final ThreadLocal<CallCache> THREAD_LOCAL_CACHE = new ThreadLocal<>();
+  private static final ThreadLocal<CallCache> THREAD_LOCAL_CACHE = new ThreadLocal<>();
 
-	public static CallCache getCache() {
-		return THREAD_LOCAL_CACHE.get();
-	}
+  public static CallCache getCache() {
+    return THREAD_LOCAL_CACHE.get();
+  }
 
-	public static CallCache createCache() {
-		THREAD_LOCAL_CACHE.set(new CallCache());
-		return getCache();
-	}
+  public static CallCache createCache() {
+    THREAD_LOCAL_CACHE.set(new CallCache());
+    return getCache();
+  }
 }

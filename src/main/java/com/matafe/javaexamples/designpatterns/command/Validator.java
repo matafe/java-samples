@@ -8,26 +8,26 @@ import java.util.List;
  */
 public class Validator {
 
-	private final List<ValidationRuleCommand> rules = new ArrayList<>();
+  private final List<ValidationRuleCommand> rules = new ArrayList<>();
 
-	public Validator() {
-		// default Rules.
-		rules.add(new EmptyValidationRuleCommand());
-		rules.add(new LargeValidationRuleCommand());
-	}
+  public Validator() {
+    // default Rules.
+    rules.add(new EmptyValidationRuleCommand());
+    rules.add(new LargeValidationRuleCommand());
+  }
 
-	public void addValidationRule(ValidationRuleCommand rule) {
-		rules.add(rule);
-	}
+  public void addValidationRule(ValidationRuleCommand rule) {
+    rules.add(rule);
+  }
 
-	public List<ValidationRuleCommand> getRules() {
-		return rules;
-	}
+  public List<ValidationRuleCommand> getRules() {
+    return rules;
+  }
 
-	public void validate(String name) throws Exception {
-		for (ValidationRuleCommand rule : rules) {
-			rule.validate(name);
-		}
-	}
+  public void validate(String name) throws Exception {
+    for (ValidationRuleCommand rule : rules) {
+      rule.validate(name);
+    }
+  }
 
 }

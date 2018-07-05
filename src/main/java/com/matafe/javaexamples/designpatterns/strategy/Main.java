@@ -5,24 +5,23 @@ import java.util.Date;
 
 public class Main {
 
-	public static void main(String[] args) {
+  public static void main(String[] args) {
 
-		ShoppingCart sc = new ShoppingCart();
+    ShoppingCart sc = new ShoppingCart();
 
-		sc.addItem(new Item("TV", new BigDecimal(1000)));
-		sc.addItem(new Item("DVD Player", new BigDecimal(300)));
-		sc.addItem(new Item("Home Theater", new BigDecimal(500)));
+    sc.addItem(new Item("TV", new BigDecimal(1000)));
+    sc.addItem(new Item("DVD Player", new BigDecimal(300)));
+    sc.addItem(new Item("Home Theater", new BigDecimal(500)));
 
-		sc.showItems();
+    sc.showItems();
 
-		System.out.println();
+    System.out.println();
 
-		// Credit Card payment
-		sc.pay(new CreditCardPayment("12345", "Me", new Date(),
-				CreditCardType.VISA));
+    // Credit Card payment
+    sc.pay(new CreditCardPayment("12345", "Me", new Date(), CreditCardType.VISA));
 
-		// Cash payment
-		sc.pay(new CashPayment());
+    // Cash payment
+    sc.pay(new CashPayment());
 
-	}
+  }
 }

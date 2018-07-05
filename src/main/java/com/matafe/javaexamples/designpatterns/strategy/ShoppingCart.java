@@ -9,49 +9,49 @@ import java.util.List;
  */
 class ShoppingCart {
 
-	private List<Item> items = new ArrayList<>();
+  private List<Item> items = new ArrayList<>();
 
-	public List<Item> getItems() {
-		return items;
-	}
+  public List<Item> getItems() {
+    return items;
+  }
 
-	public void addItem(Item item) {
-		getItems().add(item);
-	}
+  public void addItem(Item item) {
+    getItems().add(item);
+  }
 
-	public void removeItem(Item item) {
-		getItems().remove(item);
-	}
+  public void removeItem(Item item) {
+    getItems().remove(item);
+  }
 
-	public void removeAllItem() {
-		getItems().clear();
-	}
+  public void removeAllItem() {
+    getItems().clear();
+  }
 
-	public BigDecimal getTotalPrice() {
-		BigDecimal tot = BigDecimal.ZERO;
+  public BigDecimal getTotalPrice() {
+    BigDecimal tot = BigDecimal.ZERO;
 
-		for (Item item : items) {
-			tot = tot.add(item.getPrice());
-		}
+    for (Item item : items) {
+      tot = tot.add(item.getPrice());
+    }
 
-		return tot;
-	}
+    return tot;
+  }
 
-	public void showItems() {
-		for (int i = 0; i < getItems().size(); i++) {
-			Item item = getItems().get(i);
-			System.out.println((i + 1) + " - " + item);
+  public void showItems() {
+    for (int i = 0; i < getItems().size(); i++) {
+      Item item = getItems().get(i);
+      System.out.println((i + 1) + " - " + item);
 
-		}
-	}
+    }
+  }
 
-	public void pay(PaymentStrategy paymentMethod) {
-		paymentMethod.pay(getTotalPrice());
-	}
+  public void pay(PaymentStrategy paymentMethod) {
+    paymentMethod.pay(getTotalPrice());
+  }
 
-	@Override
-	public String toString() {
-		return "ShoppingCart [items.size=" + items.size() + "]";
-	}
+  @Override
+  public String toString() {
+    return "ShoppingCart [items.size=" + items.size() + "]";
+  }
 
 }

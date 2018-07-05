@@ -7,29 +7,29 @@ package com.matafe.javaexamples.designpatterns.builder;
  */
 public class MyObjectBuilder {
 
-	private final MyObject object;
+  private final MyObject object;
 
-	public MyObjectBuilder() {
-		this.object = new MyObject();
-	}
+  public MyObjectBuilder() {
+    this.object = new MyObject();
+  }
 
-	public MyObjectBuilder addName(final String name) {
-		this.object.setName(name);
-		return this;
-	}
+  public MyObjectBuilder addName(final String name) {
+    this.object.setName(name);
+    return this;
+  }
 
-	public MyObjectBuilder addAge(final int age) {
-		this.object.setAge(age);
-		return this;
-	}
+  public MyObjectBuilder addAge(final int age) {
+    this.object.setAge(age);
+    return this;
+  }
 
-	public MyObjectBuilder addMarried(final boolean married) {
-		this.object.setMarried(married);
-		return this;
-	}
+  public MyObjectBuilder addMarried(final boolean married) {
+    this.object.setMarried(married);
+    return this;
+  }
 
-	public MyObject build() {
-		return this.object;
-	}
+  public MyObject build() {
+    return this.object;
+  }
 
 }

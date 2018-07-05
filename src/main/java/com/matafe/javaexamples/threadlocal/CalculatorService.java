@@ -7,6 +7,6 @@ package com.matafe.javaexamples.threadlocal;
  */
 public interface CalculatorService {
 
-	public int sum(int a, int b);
+  public int sum(int a, int b);
 
 }

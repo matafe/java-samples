@@ -9,22 +9,22 @@ import java.util.Collection;
  */
 class MyTaskList implements Runnable {
 
-	private final Collection<MyTask> tasks;
+  private final Collection<MyTask> tasks;
 
-	public MyTaskList(Collection<MyTask> tasks) {
-		this.tasks = tasks;
-	}
+  public MyTaskList(Collection<MyTask> tasks) {
+    this.tasks = tasks;
+  }
 
-	public void run() {
+  public void run() {
 
-		for (MyTask myTask : getTasks()) {
-			myTask.run();
-		}
+    for (MyTask myTask : getTasks()) {
+      myTask.run();
+    }
 
-	}
+  }
 
-	public Collection<MyTask> getTasks() {
-		return tasks;
-	}
+  public Collection<MyTask> getTasks() {
+    return tasks;
+  }
 
 }

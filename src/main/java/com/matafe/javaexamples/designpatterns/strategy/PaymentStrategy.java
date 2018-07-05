@@ -7,6 +7,6 @@ import java.math.BigDecimal;
  */
 interface PaymentStrategy {
 
-	void pay(BigDecimal value);
+  void pay(BigDecimal value);
 
 }

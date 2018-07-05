@@ -12,47 +12,46 @@ import java.lang.reflect.Proxy;
  */
 public class CacheProxy implements InvocationHandler {
 
-	private Object obj;
+  private Object obj;
 
-	public static Object newInstance(Object obj) {
-		return Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj
-				.getClass().getInterfaces(), new CacheProxy(obj));
-	}
+  public static Object newInstance(Object obj) {
+    return Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(),
+        new CacheProxy(obj));
+  }
 
-	private CacheProxy(Object obj) {
-		this.obj = obj;
-	}
+  private CacheProxy(Object obj) {
+    this.obj = obj;
+  }
 
-	public Object invoke(Object proxy, Method method, Object[] args)
-			throws Throwable {
+  public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
-		Object result = null;
+    Object result = null;
 
-		try {
+    try {
 
-			CallCache cache = CallCacheHolder.getCache();
+      CallCache cache = CallCacheHolder.getCache();
 
-			if (cache == null) {
-				cache = CallCacheHolder.createCache();
-			}
+      if (cache == null) {
+        cache = CallCacheHolder.createCache();
+      }
 
-			CallCacheArgs cArgs = new CallCacheArgs(args);
+      CallCacheArgs cArgs = new CallCacheArgs(args);
 
-			String methodName = method.getName();
-			result = cache.get(methodName, cArgs);
+      String methodName = method.getName();
+      result = cache.get(methodName, cArgs);
 
-			if (result != null) {
-				return result;
-			} else {
-				result = method.invoke(obj, args);
-				cache.put(methodName, cArgs, result);
-			}
-		} catch (InvocationTargetException e) {
-			throw e.getTargetException();
-		} catch (Exception e) {
-			throw new RuntimeException("Unexpected invocation exception: ", e);
+      if (result != null) {
+        return result;
+      } else {
+        result = method.invoke(obj, args);
+        cache.put(methodName, cArgs, result);
+      }
+    } catch (InvocationTargetException e) {
+      throw e.getTargetException();
+    } catch (Exception e) {
+      throw new RuntimeException("Unexpected invocation exception: ", e);
 
-		}
-		return result;
-	}
+    }
+    return result;
+  }
 }

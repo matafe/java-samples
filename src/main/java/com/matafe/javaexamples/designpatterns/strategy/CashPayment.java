@@ -7,9 +7,9 @@ import java.math.BigDecimal;
  */
 public class CashPayment implements PaymentStrategy {
 
-	@Override
-	public void pay(BigDecimal value) {
-		System.out.println("$" + value + " paid with cash");
-	}
+  @Override
+  public void pay(BigDecimal value) {
+    System.out.println("$" + value + " paid with cash");
+  }
 
 }

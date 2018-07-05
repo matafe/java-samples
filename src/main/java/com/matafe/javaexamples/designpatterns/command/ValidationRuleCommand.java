@@ -5,5 +5,5 @@ package com.matafe.javaexamples.designpatterns.command;
  */
 public interface ValidationRuleCommand {
 
-	void validate(String name) throws Exception;
+  void validate(String name) throws Exception;
 }

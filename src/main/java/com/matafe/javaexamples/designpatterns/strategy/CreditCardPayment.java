@@ -8,47 +8,47 @@ import java.util.Date;
  */
 class CreditCardPayment implements PaymentStrategy {
 
-	private String number;
+  private String number;
 
-	private String holderName;
+  private String holderName;
 
-	private Date expireDate;
+  private Date expireDate;
 
-	private CreditCardType type;
+  private CreditCardType type;
 
-	public CreditCardPayment(String number, String holderName, Date expireDate,
-			CreditCardType type) {
-		super();
-		this.number = number;
-		this.holderName = holderName;
-		this.expireDate = expireDate;
-		this.type = type;
-	}
+  public CreditCardPayment(String number, String holderName, Date expireDate, CreditCardType type) {
+    super();
+    this.number = number;
+    this.holderName = holderName;
+    this.expireDate = expireDate;
+    this.type = type;
+  }
 
-	@Override
-	public void pay(BigDecimal value) {
-		System.out.println("$" + value + " paid with credit card number "
-				+ number + " of " + holderName);
-	}
+  @Override
+  public void pay(BigDecimal value) {
+    System.out
+        .println("$" + value + " paid with credit card number " + number + " of " + holderName);
+  }
 
-	public String getNumber() {
-		return number;
-	}
+  public String getNumber() {
+    return number;
+  }
 
-	public String getHolderName() {
-		return holderName;
-	}
+  public String getHolderName() {
+    return holderName;
+  }
 
-	public Date getExpireDate() {
-		return expireDate;
-	}
+  public Date getExpireDate() {
+    return expireDate;
+  }
 
-	public CreditCardType getType() {
-		return type;
-	}
+  public CreditCardType getType() {
+    return type;
+  }
 
 }
 
+
 enum CreditCardType {
-	VISA, MASTERCARD
+  VISA, MASTERCARD
 }
