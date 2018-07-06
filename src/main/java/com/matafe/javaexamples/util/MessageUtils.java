@@ -47,9 +47,7 @@ public class MessageUtils {
    * 
    * @return The Resource Bundle.
    */
-  public ResourceBundle getBundle(final String bundleName, final Locale locale)
-
-  {
+  public ResourceBundle getBundle(final String bundleName, final Locale locale) {
     try {
       Map<String, ResourceBundle> map = this.cacheMessages.get(locale);
 
@@ -80,7 +78,6 @@ public class MessageUtils {
   }
 
   public static void main(String[] args) {
-
     MessageUtils messageUtils = MessageUtils.getInstance();
 
     // Example 1
